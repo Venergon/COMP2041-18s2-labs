@@ -1,0 +1,124 @@
+COMP[29]041 18s2
+ 
+COMP[29]041 18s2
+A student wrote this script named start_lab04.sh to run before
+#!/bin/sh
+cd ~/labs/04
+ex1=jpg2png
+ex2=email_image
+ex3=date_image
+ex4=tag_music
+But when he ran his script, it didn't seem to work:
+pwd
+/home/z1234567
+./start_lab04.sh
+pwd
+/home/z1234567
+echo $ex1 $ex2 $ex3 $ex4
+Why not, and can you fix the shell script?
+The course code for COMP2041 has been changed to COMP2042 and the course code for COMP9041 has been changed to COMP9042. Write a shell script, update_course_code.sh which appropriately changes the course_code in all the files it is given as argument.
+Modify update_course_code.sh so if given a directory as argument it updates the course codes in files found in that directory and its sub-directories.
+Write a shell script, is_business_hours which exits with a status of 0 if the current time is between 9am & 5pm, and otherwise exits with a status of 1.
+Hint: the date command prints the current time in a format like this:
+
+date
+Sun Mar 18 12:57:08 EST 2012
+CSE systems have a command, mlalias, which prints information about a specified mail alias. For example:
+mlalias COMP2041-list
+        alias: COMP2041-list
+  description: Udb alias list
+    addresses:
+               z5000000
+               z5000001
+               .......
+               z5555555
+               andrewt
+       owners: udb, cs2041
+authorised posters: @Employee, @Subject_Utility, @Wheel
+    Moderator: udb
+       Status: system, closed, moderated, virtual, and public
+Convert the output of the mlalias command into a new line separated list of CSE usernames, like this:
+z5000000
+z5000001
+.......
+z5555555
+andrewt
+CSE system have a command, acc, which prints information about a specified user. For example:
+acc z5555555
+            User Name : z5555555              Aliases :
+                  Uid : 25068
+               Groups :
+              Expires : 31 Dec 2018
+         User classes : 3978_Student, COMP2041_Student[15dec2018]
+                      : COMP2121_Student[15dec2018], COMP2511_Student[15dec2018]
+                      : COMP1511_Tutor[16dec2018], COMP3900_Student[15dec2018]
+                 Name : Michael Yang Zhou
+Password last changed : 2018/03/02.21:23:19
+       Home Directory : /import/adams/1/mzhou
+                Name : Mr Zhou, Michael Yang (Michael Yang Zhou)
+            Position : UGRD (Faculty of Engineering)
+         UNSW Number : 5555555
+           UNSW Mail : z5555555@unsw.edu.au
+           UNSW Home : //INFPWFS219.ad.unsw.edu.au/Student038$/z5555555
+            CSE Home : /import/kamen/3/z5555555
+Write a pipeline which converts the output of acc into a new line separated list of courses the person is enrolled in, like this:
+COMP2041
+COMP2121
+COMP2511
+COMP3900
+Make sure you don't include COMP1511 which Michael tutors.
+Use the pipeines from the above 2 questions to write shell commands which print a list of courses taken by COMP2041 students with counts of how many COMP2041 students take each, like this:
+
+     55 COMP2911
+     37 COMP2121
+     17 COMP3311
+     10 COMP2111
+      9 COMP3331
+      ..........
+COMP2041 student Shruti has a 'friends' subdirectory in her home directory that contains images of her many friends. Shruti likes to view these images often and would like to have them appear in other directories within her CSE account so she has written a shell script to symbolically link them to the current directory:
+for image_file in `ls ~/friends`
+do
+    ln -s "~/friends/$image_file" .
+done
+The links created by Shruti's script are broken. Why? How can she fix her script?
+
+Write a shell script named isprime which given an integer as argment, tests whether it is prime and prints a suitable message:
+isprime 42
+42 is not prime
+isprime 113
+113 is prime
+Your script should exit with a non-zero exit status if its argument is not prime.
+Write a second script named primes which uses the first script to print all primes less than a specified value, e.g:
+
+primes 100
+2
+3
+5
+7
+11
+13
+17
+...
+79
+83
+89
+97
+Revision questions
+The remaining tutorial questions are primarily intended for revision - either this week or later in session.
+Your tutor may still choose to cover some of the questions time permitting.
+
+COMP2041 student Big Bad Barry tries to impress a girl at a party by betting her she can't work out what this shell script:
+#!/bin/sh
+IFS=abc
+echo "$*"
+prints when run like this:
+
+./script.sh mount inside
+What does the script print?
+
+Will the girl go out with Big Bad Barry?
+
+COMP[29]041 18s2: Software Construction is brought to you by 
+the School of Computer Science and Engineering at the University of New South Wales, Sydney.
+For all enquiries, please email the class account at cs2041@cse.unsw.edu.au
+CRICOS Provider 00098G
